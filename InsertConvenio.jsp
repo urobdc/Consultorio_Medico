@@ -6,20 +6,15 @@
 <%
     //Conecta com o banco
     ConexaoMySQL.getConexaoMySQL();
-
     String descricao = request.getParameter("descricao");
-    
+    //out.println(descricao);
     String sqlStr;
     int recordUpdated;
-
     //Inserir no BD
-    sqlStr = "Insert into Consultorio_Convenio(descricao)  values ('" + descricao + "')";
-
-    recordUpdated = ConexaoMySQL.stmConection().executeUpdate(sqlStr);
+    sqlStr = "INSERT INTO Consultorio_Convenio(descricao) VALUES ('" + descricao + "')";
+    recordUpdated = ConexaoMySQL.stmConection().executeUpdate(sqlStr);    
     out.println("Registro Inserido com sucesso");
-
     //Fechar Conexao
     ConexaoMySQL.FecharConexao();
-    request.getRequestDispatcher("Main.jsp").forward(request, response); // Direciona a pagina home 
-
+    //request.getRequestDispatcher("Main.jsp").forward(request, response); // Direciona a pagina home 
 %>
