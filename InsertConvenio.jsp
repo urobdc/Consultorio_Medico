@@ -13,7 +13,7 @@
     int recordUpdated;
 
     //Inserir no BD
-    sqlStr = "Insert into Consultorio_Convenio(nome)  values ('" + descricao + "')";
+    sqlStr = "Insert into Consultorio_Convenio(descricao)  values ('" + descricao + "')";
 
     recordUpdated = ConexaoMySQL.stmConection().executeUpdate(sqlStr);
     out.println("Registro Inserido com sucesso");
