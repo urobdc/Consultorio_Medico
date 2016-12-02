@@ -22,12 +22,13 @@
                 <div id="Convenio">
 
                     <legend>Cadastro de Convenio</legend><br>
-                    <br><label>Nome do Convenio:</label>
-                    <input type="text" name="descricao" required=""><br>        
-
+                    <br><label>Nome do Convenio:</label><br>
+                    <input type="text" name="descricao" required=""><br><br>      
+                    
                     <button class="but" type="submit" value="Inserir">Inserir</button>
                     <button  id="botao2" class="but" type="reset" value="Reset">Limpar</button>
+                    <br><br><br><a href="Main.jsp">Menu Inicial</a>
 
                     </body>
                     </html>
-            </fieldset>
+</fieldset>
