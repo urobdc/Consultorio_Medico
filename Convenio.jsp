@@ -7,7 +7,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Convenio</title>
         <style>
-
         </style>
     </head>
     <body> 
@@ -24,8 +23,8 @@
 
                     <legend>Cadastro de Convenio</legend><br>
                     <br><label>Nome do Convenio:</label>
-                    <input type="text" name="nome" required=""><br>        
-                    
+                    <input type="text" name="descricao" required=""><br>        
+
                     <button class="but" type="submit" value="Inserir">Inserir</button>
                     <button  id="botao2" class="but" type="reset" value="Reset">Limpar</button>
 
