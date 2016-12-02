@@ -17,6 +17,7 @@
             <%
                 ConexaoMySQL.getConexaoMySQL();
                 String sqlStr = "";
+                int recordUpdated = 0;
                 ResultSet rset;
             %>
 
@@ -24,59 +25,55 @@
 
                 <div id="Consulta">
 
-                    <legend>Cadastro de Consultas</legend><br>
-                    <br><label>Paciente:</label>
-                    <%
-                        sqlStr = "SELECT * FROM  Consultorio_Paciente";
+                    <legend><h3>Cadastro de Consultas</h3></legend><br>
+                    <br><label>Paciente:</label><br>
+                    <select name="id_paciente">
+                        <%
+                            sqlStr = "SELECT * FROM  Consultorio_Paciente";
+                            out.println(sqlStr);
 
-                        out.println(sqlStr);
+                            rset = ConexaoMySQL.stmConection().executeQuery(sqlStr);
 
+                            while (rset.next()) {
+                                out.println("<option value='" + rset.getString("id") + "'>" + rset.getString("nome") + "</option>");
+                            }
+                        %>
+                    </select><br>
+                    <br><label>Servico:</label><br>
+                    <select name="id_servico">
+                        <%
+                            sqlStr = "SELECT * FROM  Consultorio_Servico";                        
+                            out.println(sqlStr);
+                        
                         rset = ConexaoMySQL.stmConection().executeQuery(sqlStr);
-
+                        
                         while (rset.next()) {
-                            out.println(rset.getString("nome"));
-                            out.println("<br>");
-                            out.println("<option value='" + rset.getString("id") + "'>" + rset.getString("nome") + "</option>");
-                        }
-                    %>
-                    <br><label>Servico:</label>
-                    <%
-                        sqlStr = "SELECT * FROM  Consultorio_Servico";
-
-                        out.println(sqlStr);
-
+                            out.println("<option value='" + rset.getString("id") + "'>"+rset.getString("descricao")+"</option>");
+                        }                            
+                        %>
+                    </select><br>
+                    <br><label>Convenio:</label><br>
+                    <select name="id_convenio">
+                        <%
+                            sqlStr = "SELECT * FROM  Consultorio_Convenio";                        
+                            out.println(sqlStr);
+                        
                         rset = ConexaoMySQL.stmConection().executeQuery(sqlStr);
-
+                        
                         while (rset.next()) {
-                            out.println(rset.getString("descricao"));
-                            out.println("<br>");
-                            out.println(rset.getString("vlr"));
-                            out.println("<option value='" + rset.getString("id") + "'>" + rset.getString("descricao") + "</option>");
-                        }
-                    %>
-                    <br><label>Convenio:</label>
-                    <%
-                        sqlStr = "SELECT * FROM  Consultorio_Convenio";
-
-                        out.println(sqlStr);
-
-                        rset = ConexaoMySQL.stmConection().executeQuery(sqlStr);
-
-                        while (rset.next()) {
-                            out.println(rset.getString("descricao"));
-                            out.println("<br>");                            
-                            out.println("<option value='" + rset.getString("id") + "'>" + rset.getString("descricao") + "</option>");
-                        }
-                    %>
-                    <input type="text" name="id_servico" required=""><br>
-                    <br><label>Data da Consulta:</label>
+                            out.println("<option value='" + rset.getString("id") + "'>"+rset.getString("descricao")+"</option>");
+                        }                            
+                        %>
+                    </select><br>
+                    <br><label>Data da Consulta: (dd/mm/aaaa)</label><br>
                     <input type="text" name="dt_consulta" required=""><br>        
-                    <br><label>Hora da Consulta:</label>
-                    <input type="text" name="hr_consulta" required=""><br>        
-
+                    <br><label>Hora da Consulta: (hh:mm)</label><br>
+                    <input type="text" name="hr_consulta" required=""><br><br>
+                    
                     <button class="but" type="submit" value="Inserir">Inserir</button>
                     <button  id="botao2" class="but" type="reset" value="Reset">Limpar</button>
-
+                    <br><br><br><a href="Main.jsp">Menu Inicial</a>
+                    
                     </body>
                     </html>
             </fieldset>
