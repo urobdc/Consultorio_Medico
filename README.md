@@ -3,5 +3,5 @@ Desenvolvimento de um sistema para consultorio medico onde o mesmo deverá fazer
 
 
 Desenvolvimento: Java Web
-Servidor: GlassFish
+Banco de dados: MySQL
 API: NetBeans 8.2
